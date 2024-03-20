@@ -9,7 +9,6 @@ app = Flask(__name__)
 def index():
     return 'Welcome to CSC40088 Fundamentals of Computer Science!'
 
-# new codes for Activity 3.6
 @app.route('/basic')
 def display_data():
     with open('data/Kaggle_TwitterUSAirlineSentiment.csv', encoding='utf-8-sig') as csvfile:
