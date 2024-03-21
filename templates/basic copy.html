@@ -19,6 +19,7 @@
 			<th>Airline Sentiment Confidence</th>
 			<th>Airline</th>
 			<th>Tweet Text</th>
+			<th>Tweet Location</th>
 		</tr>
       </thead>
 	
@@ -29,7 +30,8 @@
           <td>{{ tweet.airline_sentiment }}</td> 
           <td>{{ tweet.airline_sentiment_confidence }}</td> 
           <td>{{ tweet.airline }}</td> 
-		  <td>{{ tweet.text }}</td>  
+		  <td>{{ tweet.text }}</td> 
+          <td>{{ tweet.tweet_location }}</td> 
         </tr> 
         {% endfor %} 
       </tbody> 
