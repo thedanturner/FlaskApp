@@ -10,17 +10,12 @@ d3.csv("static/data/Kaggle_TwitterUSAirlineSentiment.csv", function(error, data)
         headers.attr('class', 'header');
 
         if (sortAscending) {
-
             rows.sort(function(a, b) {return d3.ascending(b[d], a[d]); });     
-       
             sortAscending = false; this.className = 'aes';
-       
        } else {
-       
            rows.sort(function(a, b) { return d3.descending(b[d], a[d]); }); 
-       
             sortAscending = true; this.className = 'des';
-       
+
        }
 
     });

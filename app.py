@@ -44,5 +44,9 @@ def display_data():
 def display_data_d3():
     return render_template("advanced.html")
 
+@app.route('/creative')
+def display_creative_data():
+    return render_template("creative.html")
+
 
 app.run(host='0.0.0.0', port=81)
