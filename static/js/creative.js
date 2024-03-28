@@ -118,4 +118,16 @@ legend.append("text")
     .attr("y", 9)
     .attr("dy", ".35em")
     .style("text-anchor", "end")
-    .text(function(d) { return d; });
+    // Add mouseover events to display data
+    svg.selectAll(".bar")
+        .on("mouseover", function(d) {
+            // Get the current bar's data
+            var barData = d;
+
+            // Display the data in a tooltip or console.log
+            console.log(barData);
+        })
+        .on("mouseout", function(d) {
+            // Remove the tooltip or clear the console.log
+            console.clear();
+        });
