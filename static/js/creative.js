@@ -76,58 +76,23 @@ d3.csv("static/data/Kaggle_TwitterUSAirlineSentiment.csv", function(error, data)
     // Add x-axis
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(xScale));
+        .call(d3.axisBottom(xScale))
+        .append("text")
+        .attr("class", "axis-label")
+        .attr("x", width / 2)
+        .attr("y", margin.bottom + 10)
+        .text("Airline")
+        .style("fill", "black");
 
     // Add y-axis
     svg.append("g")
-        .call(d3.axisLeft(yScale));
-});
-
-// Add chart title
-svg.append("text")
-    .attr("x", (width / 2))
-    .attr("y", 0 - (margin.top / 2))
-    .attr("text-anchor", "middle")
-    .style("font-size", "16px")
-    .text("Airline Sentiment");
-
-// Add chart legend
-var legend = svg.selectAll(".legend")
-    .data(chartData.map(function(d) { return d.sentiment; }))
-    .enter()
-    .append("g")
-    .attr("class", "legend")
-    .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-
-legend.append("rect")
-    .attr("x", width - 18)
-    .attr("width", 18)
-    .attr("height", 18)
-    .style("fill", function(d) {
-        if (d === "positive") {
-            return "green";
-        } else if (d === "negative") {
-            return "red";
-        } else {
-            return "gray";
-        }
+        .call(d3.axisLeft(yScale))
+        .append("text")
+        .attr("class", "axis-label")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -height / 2)
+        .attr("y", -margin.left)
+        .attr("dy", "1em")
+        .text("Count")
+        .style("fill", "black");
     });
-
-legend.append("text")
-    .attr("x", width - 24)
-    .attr("y", 9)
-    .attr("dy", ".35em")
-    .style("text-anchor", "end")
-    // Add mouseover events to display data
-    svg.selectAll(".bar")
-        .on("mouseover", function(d) {
-            // Get the current bar's data
-            var barData = d;
-
-            // Display the data in a tooltip or console.log
-            console.log(barData);
-        })
-        .on("mouseout", function(d) {
-            // Remove the tooltip or clear the console.log
-            console.clear();
-        });
