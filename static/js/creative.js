@@ -1,6 +1,7 @@
 d3.csv("static/data/Kaggle_TwitterUSAirlineSentiment.csv", function(error, data) {
     if (error) throw error;
     console.log(data);
+
     data.forEach(function(d) {
         d.airline_sentiment = d.airline_sentiment;
         d.airline_sentiment_confidence = d.airline_sentiment_confidence;
@@ -12,14 +13,12 @@ d3.csv("static/data/Kaggle_TwitterUSAirlineSentiment.csv", function(error, data)
         d.tweet_location = d.tweet_location;
     });
 
-    // Group data by airline and sentiment
     var groupedData = d3.nest()
         .key(function(d) { return d.airline; })
         .key(function(d) { return d.airline_sentiment; })
         .rollup(function(leaves) { return leaves.length; })
         .entries(data);
 
-    // Prepare data for bar chart
     var chartData = [];
     groupedData.forEach(function(d) {
         var airline = d.key;
@@ -30,12 +29,10 @@ d3.csv("static/data/Kaggle_TwitterUSAirlineSentiment.csv", function(error, data)
         });
     });
 
-    // Set up chart dimensions
     var margin = { top: 20, right: 20, bottom: 30, left: 40 };
     var width = 600 - margin.left - margin.right;
     var height = 400 - margin.top - margin.bottom;
 
-    // Create SVG element
     var svg = d3.select("body")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -43,7 +40,6 @@ d3.csv("static/data/Kaggle_TwitterUSAirlineSentiment.csv", function(error, data)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    // Set up scales
     var xScale = d3.scaleBand()
         .range([0, width])
         .padding(0.1)
@@ -53,7 +49,6 @@ d3.csv("static/data/Kaggle_TwitterUSAirlineSentiment.csv", function(error, data)
         .range([height, 0])
         .domain([0, d3.max(chartData, function(d) { return d.count; })]);
 
-    // Create bars
     svg.selectAll(".bar")
         .data(chartData)
         .enter()
@@ -73,7 +68,6 @@ d3.csv("static/data/Kaggle_TwitterUSAirlineSentiment.csv", function(error, data)
             }
         });
 
-    // Add x-axis
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(xScale))
@@ -84,7 +78,6 @@ d3.csv("static/data/Kaggle_TwitterUSAirlineSentiment.csv", function(error, data)
         .text("Airline")
         .style("fill", "black");
 
-    // Add y-axis
     svg.append("g")
         .call(d3.axisLeft(yScale))
         .append("text")
@@ -95,4 +88,4 @@ d3.csv("static/data/Kaggle_TwitterUSAirlineSentiment.csv", function(error, data)
         .attr("dy", "1em")
         .text("Count")
         .style("fill", "black");
-    });
+});
