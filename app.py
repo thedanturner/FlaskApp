@@ -12,7 +12,7 @@ def index():
 
 @app.route('/basic')
 def display_data():
-    with open('./static/data/TwitterUSAirlineSentiment.csv', encoding='utf-8-sig') as csvfile:
+    with open('./static/data/Kaggle_TwitterUSAirlineSentiment.csv', encoding='utf-8-sig') as csvfile:
         data = csv.reader(csvfile, delimiter=',')
         firstline = True
         tweetData = []
@@ -50,6 +50,3 @@ def display_creative_data():
 
 
 app.run(host='0.0.0.0', port=81, debug=True)
-
-
-
