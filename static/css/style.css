@@ -65,6 +65,7 @@ th.aes:after {
   justify-content: center;
   align-items: center;
   height: 20vh;
+  text-align: center;
 }
 
 .heading {
@@ -73,6 +74,7 @@ th.aes:after {
   align-items: center;
   height: 10vh;
   background-color: #f1f1f1;
+  text-align: center;
 }
 .subheading {
   display: flex;
