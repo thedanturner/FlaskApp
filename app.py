@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Welcome to CSC40088 Fundamentals of Computer Science!'
+    return render_template("index.html")
 
 
 @app.route('/basic')
