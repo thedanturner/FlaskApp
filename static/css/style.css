@@ -59,3 +59,33 @@ th.des:after {
 th.aes:after {
   content: "\21E7";
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  background-color: #f1f1f1;
+}
+.subheading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  /* background-color: #f1f1f1; */
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  background-color: #f8f7f1;
+}
