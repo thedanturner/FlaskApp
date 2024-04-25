@@ -55,4 +55,4 @@ def report():
 
 
 # app.run(host='0.0.0.0', port=81, debug=True)
-app.run(host="0.0.0.0", port=int(os.getenv('PORT', 80)), threaded=True)
+app.run_server(debug=True, use_reloader=False )
