@@ -53,6 +53,6 @@ def display_creative_data():
 def report():
     return render_template("report.html")
 
-
+port = int(os.getenv('PORT'))
 # app.run(host='0.0.0.0', port=81, debug=True)
-app.run(port=33507, debug=True)
+app.run(port=port, debug=True)
