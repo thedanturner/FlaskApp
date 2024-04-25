@@ -94,4 +94,4 @@ def disconnect_request():
 # port = int(os.environ.get('PORT', 81))
 # app.run(host='0.0.0.0', port=port)
 
-socket_.run(app, debug=True)
+socket_.run(app, port=5000, debug=True)
