@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import csv
 import itertools
+import os
 
 app = Flask(__name__)
 
@@ -53,4 +54,5 @@ def report():
     return render_template("report.html")
 
 
-app.run(host='0.0.0.0', port=81, debug=True)
+# app.run(host='0.0.0.0', port=81, debug=True)
+app.run(host="0.0.0.0", port=int(os.getenv('PORT', 80)), threaded=True)
