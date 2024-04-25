@@ -2,6 +2,7 @@ from flask import Flask, render_template
 import csv
 import itertools
 import os
+from pml import app
 
 app = Flask(__name__)
 
@@ -53,6 +54,7 @@ def display_creative_data():
 def report():
     return render_template("report.html")
 
-port = int(os.getenv('PORT'))
 # app.run(host='0.0.0.0', port=81, debug=True)
-app.run(port=port, debug=True)
+
+port = int(os.environ.get('PORT', 81))
+app.run(host='0.0.0.0', port=port)
