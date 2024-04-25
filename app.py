@@ -57,10 +57,11 @@ def display_creative_data():
 def report():
     return render_template("report.html")
 
-@app.route('/chat')
-def chat():
-    return render_template("chat.html",
+@app.route('/websocket')
+def websocket():
+    return render_template("websocket.html",
                            sync_mode=socket_.async_mode)
+
 
 @socket_.on('my_event', namespace='/test')
 def test_message(message):
