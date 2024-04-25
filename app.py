@@ -2,7 +2,6 @@ from flask import Flask, render_template
 import csv
 import itertools
 import os
-from pml import app
 
 app = Flask(__name__)
 
