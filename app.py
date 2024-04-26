@@ -2,7 +2,7 @@ import csv
 import itertools
 import os
 from flask import Flask, render_template, session, copy_current_request_context
-from flask_socketio import SocketIO, emit, disconnect
+from flask_socketio import SocketIO, emit, disconnect, join_room, leave_room, Namespace
 from threading import Lock
 async_mode = None
 

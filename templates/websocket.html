@@ -4,8 +4,8 @@
     <title>WebSocket</title>
     <link href="/static/css/style.css" rel="stylesheet">
     <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function() {
             
@@ -15,7 +15,7 @@
             
             // add auth token to the socket connection
             var token = "YOUR_AUTH_TOKEN"; // Replace this with your actual token
-            var socket = io(namespace, {
+            socket = io(namespace, {
                 query: {
                 token: token
                 }
