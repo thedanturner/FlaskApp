@@ -10,7 +10,7 @@
         $(document).ready(function() {
             
             namespace = '/test';
-            // Change from ws:// to wss://
+            // Change from ws:// to wss:// - will only work if there is a valid SSL certificate installed on your server. Will not work when running locally.
             var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace, {secure: true});
             
             // add auth token to the socket connection
