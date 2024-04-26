@@ -8,9 +8,17 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function() {
-
+            
             namespace = '/test';
-            var socket = io(namespace);
+            // Change from ws:// to wss://
+            var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace, {secure: true});
+            // add auth token to the socket connection
+            var token = "YOUR_AUTH_TOKEN"; // Replace this with your actual token
+            var socket = io(namespace, {
+                query: {
+                token: token
+                }
+            });
 
             socket.on('connect', function() {
                 socket.emit('my_event', {data: 'connected to the SocketServer...'});
