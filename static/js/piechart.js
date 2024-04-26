@@ -52,6 +52,5 @@ d3.csv("static/data/Kaggle_TwitterUSAirlineSentiment.csv", function(error, data)
     arcs.append("text")
         .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
         .attr("text-anchor", "middle")
-        .text(function(d, i) { return airlines[i]; });
+        .text(function(d, i) { return airlines[i] + " (" + counts[i] + ")"; });
 });
-

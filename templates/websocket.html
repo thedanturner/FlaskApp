@@ -12,6 +12,7 @@
             namespace = '/test';
             // Change from ws:// to wss://
             var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace, {secure: true});
+            
             // add auth token to the socket connection
             var token = "YOUR_AUTH_TOKEN"; // Replace this with your actual token
             var socket = io(namespace, {
