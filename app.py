@@ -88,9 +88,8 @@ def disconnect_request():
     emit('my_response',
          {'data': 'Disconnected!', 'count': session['receive_count']},
          callback=can_disconnect)
-    
+ 
 # app.run(host='0.0.0.0', port=81, debug=True)
-
 # port = int(os.environ.get('PORT', 5000))
 # socket_.run(app, host='0.0.0.0', port=port)
 
