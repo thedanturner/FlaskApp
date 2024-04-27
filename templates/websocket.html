@@ -14,10 +14,10 @@
             var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace, {secure: true});
             
             // add auth token to the socket connection
-            var token = "YOUR_AUTH_TOKEN"; // Replace this with your actual token
+            var token = Math.random().toString(36).substring(2); // Generate a random token
             socket = io(namespace, {
                 query: {
-                token: token
+                    token: token
                 }
             });
 
@@ -48,7 +48,7 @@
 <body>
     <a href="/">Return to HomePage</a>
     <div class="heading">
-        <h1>WebSocket Chat Demo</h1>
+        <h1>WebSocket Demo</h1>
     </div>
     <h1 style="background-color:white;">Socket</h1>
     <br>
