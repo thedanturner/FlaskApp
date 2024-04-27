@@ -54,9 +54,12 @@
                 socket.emit('disconnect_request');
                 return false;
             });
+        
+        });
     </script>
 </head>
 <body>
+    <div id="page-wrap">
     <a href="/">Return to HomePage</a>
     <div class="heading">
         <h1>WebSocket Demo</h1>
@@ -78,7 +81,8 @@
     <br>
     <h2 style="background-color:white;">Logs</h2>
     <div id="log" ></div>
-    </body>
+    </div>
+</body>
 <footer>
     <p>Created by: Dan Turner 23042493</p>
 </footer>
