@@ -15,11 +15,6 @@
             
             // add auth token to the socket connection
             var token = Math.random().toString(36).substring(2); // Generate a random token
-            socket = io(namespace, {
-                query: {
-                    token: token
-                }
-            });
             // Event listener for when the socket connects
             socket.on('connect', function() {
                 // Emit a custom event to the server
