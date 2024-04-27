@@ -48,7 +48,7 @@
                 return false;
             });
 
-            // Event listener for submitting the disconnect form
+            // Event listener for submitting the disconnect request
             $('form#disconnect').submit(function(event) {
                 // Emit a disconnect request event to the server
                 socket.emit('disconnect_request');
