@@ -20,29 +20,40 @@
                     token: token
                 }
             });
-
+            // Event listener for when the socket connects
             socket.on('connect', function() {
+                // Emit a custom event to the server
                 socket.emit('my_event', {data: 'connected to the SocketServer...'});
             });
 
+            // Event listener for receiving a response from the server
             socket.on('my_response', function(msg, cb) {
+                // Append the received message to the log div
                 $('#log').append('<br>' + $('<div/>').text('logs #' + msg.count + ': ' + msg.data).html());
                 if (cb)
                     cb();
             });
+
+            // Event listener for submitting the emit form
             $('form#emit').submit(function(event) {
+                // Emit a custom event to the server with the input data
                 socket.emit('my_event', {data: $('#emit_data').val()});
                 return false;
             });
+
+            // Event listener for submitting the broadcast form
             $('form#broadcast').submit(function(event) {
+                // Emit a custom broadcast event to the server with the input data
                 socket.emit('my_broadcast_event', {data: $('#broadcast_data').val()});
                 return false;
             });
+
+            // Event listener for submitting the disconnect form
             $('form#disconnect').submit(function(event) {
+                // Emit a disconnect request event to the server
                 socket.emit('disconnect_request');
                 return false;
             });
-        });
     </script>
 </head>
 <body>
